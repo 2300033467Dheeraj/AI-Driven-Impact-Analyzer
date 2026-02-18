@@ -1,0 +1,12 @@
+Backend
+http://localhost:8000/health
+http://localhost:8000/
+http://localhost:8000/docs#/graph/get_service_blast_radius_service_blast_radius__service__get
+http://localhost:8000/metrics
+http://localhost:8000/service-blast-radius/Order
+http://localhost:8000/docs
+http://localhost:8000/service-blast-radius/Order
+
+Frontend
+http://localhost:3000/services
+http://localhost:3000/
