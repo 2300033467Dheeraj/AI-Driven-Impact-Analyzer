@@ -11,7 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Train model if not present
 RUN python scripts/train_model.py || true
 
 EXPOSE 8000
