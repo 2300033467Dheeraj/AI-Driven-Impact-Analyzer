@@ -25,6 +25,8 @@ Then open:
 
 Stop: docker compose down
 
+
+
 Backend	
 cd backend && python -m uvicorn app.main:app --reload
 http://localhost:8000
@@ -34,6 +36,12 @@ http://localhost:3000
 Data (Neo4j)
 docker run -p 7474:7474 -p 7687:7687 -e NEO4J_AUTH=neo4j/password neo4j:5-community
 http://localhost:7474
+
+http://localhost:7474/browser/
+neo4j
+password
+
+
 
 Manual data
 See MANUAL_DATA_GUIDE.md: POST /deployments, POST /service-graph/link, Neo4j Cypher.
