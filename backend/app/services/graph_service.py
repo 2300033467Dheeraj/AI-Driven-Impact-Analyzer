@@ -93,6 +93,23 @@ class GraphService:
             )
         return True
 
+    def add_service_link(self, from_service: str, to_service: str) -> bool:
+        """Manually add a CALLS link: from_service -> to_service. Returns True on success."""
+        driver = self._get_driver()
+        if driver is None:
+            return False
+        with driver.session() as session:
+            session.run(
+                """
+                MERGE (a:Service {name: $from_service})
+                MERGE (b:Service {name: $to_service})
+                MERGE (a)-[:CALLS]->(b)
+                """,
+                from_service=from_service,
+                to_service=to_service,
+            )
+        return True
+
     def close(self) -> None:
         """Close driver."""
         if self._driver:

@@ -105,3 +105,21 @@ class GitHubWebhookPayload(BaseModel):
     commits: list[GitHubCommit] = []
     repository: GitHubRepository | None = None
     head_commit: GitHubCommit | None = None
+
+
+# Manual data: add deployment
+class AddDeploymentRequest(BaseModel):
+    """Request for POST /deployments (manually add a deployment)."""
+
+    service_name: str = Field(..., min_length=1)
+    risk_score: float = Field(..., ge=0, le=100)
+    decision: DecisionLabel = Field(...)
+    status: Literal["success", "failed", "pending"] = "pending"
+
+
+# Manual data: add service dependency (Neo4j graph)
+class AddServiceLinkRequest(BaseModel):
+    """Request for POST /service-graph/link (add CALLS relationship)."""
+
+    from_service: str = Field(..., min_length=1, description="Caller service name")
+    to_service: str = Field(..., min_length=1, description="Callee service name")
