@@ -6,7 +6,7 @@ import type {
   Deployment,
 } from '@/types';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'http://65.2.180.188:8000/';
 
 const api: AxiosInstance = axios.create({
   baseURL: BASE_URL,
